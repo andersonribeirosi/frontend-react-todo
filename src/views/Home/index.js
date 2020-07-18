@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import * as Style from './styles';
 import FilterCard from '../../components/FilterCard';
+import TaskCard from '../../components/TaskCard';
+
+import * as Style from './styles';
 
 export default function Home() {
   const [filterActived, setFilterActived] = useState('today');
@@ -26,6 +28,18 @@ export default function Home() {
           <FilterCard title="Ano" actived={filterActived === 'year'} />
         </button>
       </Style.FilterArea>
+      <Style.Content>
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+      </Style.Content>
       <Footer />
     </Style.Container>
   );

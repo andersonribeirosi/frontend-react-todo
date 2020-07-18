@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 200px;
-  height: 40px;
+  /* max-width: 100%; */
+  width: 230px;
+  /* min-width: 200px !important; */
+  height: 60px;
   padding: 10px;
   background: ${(props) => (props.actived ? '#ee6b26' : '#20295f')};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 5px;
+  /* position: absolute; */
 
   img {
     width: 25px;

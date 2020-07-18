@@ -7,8 +7,8 @@ export const Container = styled.div`
   display: flex;
   border-top: 3px solid #ee6b26;
 
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  /* bottom: 10px; */
   align-items: center;
   justify-content: center;
   span {

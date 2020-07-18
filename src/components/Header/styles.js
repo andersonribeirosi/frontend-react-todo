@@ -23,6 +23,8 @@ export const RightSide = styled.div`
   width: 50%;
   height: 70px;
   display: flex;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   align-items: center;
   justify-content: flex-end;
   a {
