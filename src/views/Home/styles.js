@@ -5,10 +5,15 @@ export const Container = styled.div`
 `;
 
 export const FilterArea = styled.div`
-  width: 100%;
-  cursor: pointer;
+  min-width: 100% !important;
+  max-width: 100% !important;
   display: flex;
-  margin-top: 30px;
   justify-content: space-around;
   margin-top: 30px;
+
+  button {
+    border: none !important;
+    background: none !important;
+    outline-style: none !important;
+  }
 `;

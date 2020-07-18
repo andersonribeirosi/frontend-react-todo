@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 240px;
+  width: 200px;
   height: 40px;
   padding: 10px;
   background: ${(props) => (props.actived ? '#ee6b26' : '#20295f')};
