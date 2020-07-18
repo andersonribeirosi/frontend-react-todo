@@ -62,7 +62,7 @@ export default function Home() {
       </Style.FilterArea>
 
       <Style.Title>
-        <h3>{filterActived == 'late' ? dd 'TAREFAS ATRASADAS' : 'TAREFAS'}</h3>
+        <h3>{filterActived == 'late' ? 'TAREFAS ATRASADAS' : 'TAREFAS'}</h3>
       </Style.Title>
 
       <Style.Content>
