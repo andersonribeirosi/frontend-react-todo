@@ -1,13 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FilterCard from '../../components/FilterCard';
 import TaskCard from '../../components/TaskCard';
 
+import api from '../../services/api';
+
 import * as Style from './styles';
 
 export default function Home() {
-  const [filterActived, setFilterActived] = useState('today');
+  const [filterActived, setFilterActived] = useState('all');
+
+  const [tasks, setTasks] = useState([]);
+
+  async function loadTasks() {
+    await api
+      .get(`/task/filter/${filterActived}/25:60:f5:08:12`)
+      .then((response) => {
+        setTasks(response.data);
+        console.log(response.data);
+      });
+  }
+
+  useEffect(() => {
+    loadTasks();
+  }, [filterActived]);
+
   return (
     <Style.Container>
       <Header />
@@ -36,16 +54,9 @@ export default function Home() {
       </Style.Title>
 
       <Style.Content>
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
+        {tasks.map((t) => (
+          <TaskCard title={t.title} type={t.type} when={t.when} />
+        ))}
       </Style.Content>
       <Footer />
     </Style.Container>
