@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* max-width: 100%; */
   width: 230px;
-  /* min-width: 200px !important; */
   height: 60px;
   padding: 10px;
   background: ${(props) => (props.actived ? '#ee6b26' : '#20295f')};
@@ -11,6 +9,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   border-radius: 5px;
+  /* min-width: 200px !important; */
+  /* max-width: 100%; */
   /* position: absolute; */
 
   img {

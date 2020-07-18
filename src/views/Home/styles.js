@@ -29,12 +29,13 @@ export const FilterArea = styled.div`
 `;
 
 export const Title = styled.div`
-  width: 100%;
+  width: 99%;
   border-bottom: 2px solid #20295f;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   padding: 2px;
+  margin-left: 5px;
   h3 {
     color: #20295f;
     position: relative;

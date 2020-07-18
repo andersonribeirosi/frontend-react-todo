@@ -10,25 +10,37 @@ import * as Style from './styles';
 
 export default function Home() {
   const [filterActived, setFilterActived] = useState('all');
+  const [lateCount, setLateCount] = useState();
 
-  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState([]);
 
   async function loadTasks() {
     await api
       .get(`/task/filter/${filterActived}/25:60:f5:08:12`)
       .then((response) => {
-        setTasks(response.data);
-        console.log(response.data);
+        setTask(response.data);
       });
   }
 
+  async function lateVerify() {
+    await api.get(`/task/filter/late/25:60:f5:08:12`).then((response) => {
+      setLateCount(response.data.length);
+    });
+  }
+
+  function Notification() {
+    setFilterActived('late');
+  }
+
+  //É inicializado sempre que a página é carregada(trazendo todas tarefas por default - all)
   useEffect(() => {
     loadTasks();
+    lateVerify();
   }, [filterActived]);
 
   return (
     <Style.Container>
-      <Header />
+      <Header lateCount={lateCount} clickNotification={Notification} />
       <Style.FilterArea>
         <div className="centerButton">
           <button type="button" onClick={() => setFilterActived('all')}>
@@ -50,11 +62,11 @@ export default function Home() {
       </Style.FilterArea>
 
       <Style.Title>
-        <h3>TAREFAS</h3>
+        <h3>{filterActived == 'late' ? dd 'TAREFAS ATRASADAS' : 'TAREFAS'}</h3>
       </Style.Title>
 
       <Style.Content>
-        {tasks.map((t) => (
+        {task.map((t) => (
           <TaskCard title={t.title} type={t.type} when={t.when} />
         ))}
       </Style.Content>
