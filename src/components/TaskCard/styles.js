@@ -12,6 +12,12 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 15px;
   margin-top: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const TopCard = styled.div`

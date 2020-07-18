@@ -12,22 +12,29 @@ export default function Home() {
     <Style.Container>
       <Header />
       <Style.FilterArea>
-        <button type="button" onClick={() => setFilterActived('all')}>
-          <FilterCard title="Todos" actived={filterActived === 'all'} />
-        </button>
-        <button type="button" onClick={() => setFilterActived('today')}>
-          <FilterCard title="Dia" actived={filterActived === 'today'} />
-        </button>
-        <button type="button" onClick={() => setFilterActived('week')}>
-          <FilterCard title="Semana" actived={filterActived === 'week'} />
-        </button>
-        <button type="button" onClick={() => setFilterActived('month')}>
-          <FilterCard title="Mês" actived={filterActived === 'month'} />
-        </button>
-        <button type="button" onClick={() => setFilterActived('year')}>
-          <FilterCard title="Ano" actived={filterActived === 'year'} />
-        </button>
+        <div className="centerButton">
+          <button type="button" onClick={() => setFilterActived('all')}>
+            <FilterCard title="Todos" actived={filterActived === 'all'} />
+          </button>
+          <button type="button" onClick={() => setFilterActived('today')}>
+            <FilterCard title="Dia" actived={filterActived === 'today'} />
+          </button>
+          <button type="button" onClick={() => setFilterActived('week')}>
+            <FilterCard title="Semana" actived={filterActived === 'week'} />
+          </button>
+          <button type="button" onClick={() => setFilterActived('month')}>
+            <FilterCard title="Mês" actived={filterActived === 'month'} />
+          </button>
+          <button type="button" onClick={() => setFilterActived('year')}>
+            <FilterCard title="Ano" actived={filterActived === 'year'} />
+          </button>
+        </div>
       </Style.FilterArea>
+
+      <Style.Title>
+        <h3>TAREFAS</h3>
+      </Style.Title>
+
       <Style.Content>
         <TaskCard />
         <TaskCard />
